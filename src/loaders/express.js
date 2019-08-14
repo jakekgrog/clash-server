@@ -19,18 +19,34 @@ const expressLoader = async (app) => {
         app.use(bodyParser.urlencoded({ extended: true }));
         console.log('  body-parser initialized successfully!')
         console.log(
-            colorIt(_.join([' ', emojic.whiteCheckMark,' Express middleware initialized!'],''))
-                .green()
-                .toString()
+            colorIt(
+                _.join([
+                        ' ', 
+                        emojic.whiteCheckMark,
+                        ' Express middleware initialized!'
+                    
+                ],'')
             )
+            .green()
+            .toString()
+        )
 
         return app
     } catch (err) {
         console.log(
-            colorIt(_.join([' ', emojic.x,' Express middleware initialization failed!','\n', 'This could be caused by any of the middleware'],''))
+            colorIt(
+                _.join([
+                    ' ', 
+                    emojic.x,
+                    ' Express middleware initialization failed!',
+                    '\n', 
+                    'This could be caused by any of the middleware'
+                ],'')
+            )
             .red()
             .toString()
         )
+        
         process.exit(1)
     }
 }

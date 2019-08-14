@@ -11,7 +11,11 @@ const init = async (expressApp) => {
     console.log('Initializing MongoDB...')
     const mongoConnection = await mongooseLoader();
     console.log(
-        colorIt(_.join([emojic.whiteCheckMark, 'MongoDB initialized!'], ' '))
+        colorIt(
+            _.join([
+                emojic.whiteCheckMark, 
+                'MongoDB initialized!'
+            ], ' '))
         .green()
         .toString()
     )
@@ -20,7 +24,11 @@ const init = async (expressApp) => {
     console.log('Initializing Express...')
     await expressLoader(expressApp)
     console.log(
-        colorIt(_.join([emojic.whiteCheckMark, 'Express initialized!'], ' '))
+        colorIt(_.join([
+                emojic.whiteCheckMark, 
+                'Express initialized!'
+            ], ' ')
+        )
         .green()
         .toString()
     )

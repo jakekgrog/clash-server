@@ -10,10 +10,18 @@ const mongooseLoader = async () => {
     return connection.connection.db
   } catch (err) {
     console.log(
-        colorIt(_.join([emojic.x, 'MongoDB initialization failed!', '\n', 'Make sure you\'re connecting to the correct database!'], ' '))
+        colorIt(
+            _.join([
+                emojic.x, 
+                'MongoDB initialization failed!', 
+                '\n', 
+                'Make sure you\'re connecting to the correct database!'
+            ], ' ')
+        )
         .red()
         .toString()
     )
+    
     process.exit(1)
   }
   

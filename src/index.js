@@ -1,8 +1,6 @@
 const express = require('express')
 require('dotenv').config()
 const loaders = require('./loaders/index')
-const emojic = require('emojic'),
-      colorIt = require('color-it')
 
 const config = require('./config/config.js')
 

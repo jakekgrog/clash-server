@@ -17,17 +17,6 @@ const startServer = async () => {
   const app = express()
 
   await loaders.init(app)
-  console.log(
-    colorIt(
-      _.join([
-        emojic.whiteCheckMark,
-        'Application initialized successfully!', 
-        'Enjoy', emojic.smiley
-      ],' ')
-    )
-    .green()
-    .toString()
-  )
 
   app.listen(PORT, err => {
     if (err) {

@@ -32,6 +32,18 @@ const init = async (expressApp) => {
         .green()
         .toString()
     )
+
+    console.log(
+        colorIt(
+          _.join([
+            emojic.whiteCheckMark,
+            'Application initialized successfully!', 
+            'Enjoy', emojic.smiley
+          ],' ')
+        )
+        .green()
+        .toString()
+    )
 }
 
 module.exports = {

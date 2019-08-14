@@ -1,4 +1,9 @@
 const express = require('express')
+require('dotenv').config()
+const loaders = require('./loaders/index')
+const emojic = require('emojic'),
+      colorIt = require('color-it')
+
 const config = require('./config/config.js')
 
 const {
@@ -7,12 +12,21 @@ const {
   MODE
 } = config
 
-const app = express()
+const startServer = async () => {
 
-app.get('/', function (req, res) {
-  res.send('Alive');
-})
+  const app = express()
 
-app.listen(PORT, function () {
-  console.log(`Running in ${MODE} mode on http://${HOST}:${PORT}`)
-})
+  await loaders.init(app)
+  console.log(colorIt(_.join([emojic.whiteCheckMark,'Application initialized successfully!', 'Enjoy', emojic.smiley],' ')).green().toString())
+
+  app.listen(PORT, err => {
+    if (err) {
+      console.log(err)
+      return
+    }
+    console.log(`Running in ${MODE} mode on http://${HOST}:${PORT}`)
+  })
+
+}
+
+startServer()

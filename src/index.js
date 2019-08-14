@@ -7,7 +7,8 @@ const config = require('./config/config.js')
 const {
   PORT,
   HOST,
-  MODE
+  MODE,
+  DB_URL
 } = config
 
 const startServer = async () => {
@@ -21,6 +22,8 @@ const startServer = async () => {
       console.log(err)
       return
     }
+    console.log(``)
+    console.log(`Connected to MongoDB on ${DB_URL}`)
     console.log(`Running in ${MODE} mode on http://${HOST}:${PORT}`)
   })
 

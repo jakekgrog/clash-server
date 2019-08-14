@@ -4,9 +4,15 @@ const emojic = require('emojic'),
       colorIt = require('color-it')
       _ = require('lodash')
 
+const config = require('../config/config.js')
+
+const {
+    DB_URL
+} = config
+
 const mongooseLoader = async () => {
   try{
-    const connection = await mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })
+    const connection = await mongoose.connect(DB_URL, { useNewUrlParser: true })
     return connection.connection.db
   } catch (err) {
     console.log(
@@ -21,7 +27,7 @@ const mongooseLoader = async () => {
         .red()
         .toString()
     )
-    
+
     process.exit(1)
   }
   

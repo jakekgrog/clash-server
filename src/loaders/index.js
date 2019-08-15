@@ -4,6 +4,7 @@ const emojic = require('emojic'),
 
 const expressLoader = require('./express').expressLoader
 const mongooseLoader = require('./mongoose').mongooseLoader
+const routerLoader = require('./routes').routerLoader
 const log = require('../logger/simpleLogger').out
 
 
@@ -17,6 +18,10 @@ const init = async (expressApp) => {
     log(['Initializing Express...'])
     await expressLoader(expressApp)
     log([emojic.whiteCheckMark, 'Express initialized!'], 'GREEN')
+
+    log(['Initializing Routes...'])
+    await routerLoader(expressApp)
+    log([emojic.whiteCheckMark, 'Routes initialized!'], 'GREEN')
 
     log([emojic.whiteCheckMark, 'Application initialized successfully!', 'Enjoy', emojic.smiley], 'GREEN')
 }

@@ -4,46 +4,21 @@ const emojic = require('emojic'),
 
 const expressLoader = require('./express').expressLoader
 const mongooseLoader = require('./mongoose').mongooseLoader
+const log = require('../logger/simpleLogger').out
 
 
 const init = async (expressApp) => {
 
-    console.log('Initializing MongoDB...')
+    log(['Initializing MongoDB...'])
     const mongoConnection = await mongooseLoader();
-    console.log(
-        colorIt(
-            _.join([
-                emojic.whiteCheckMark, 
-                'MongoDB initialized!'
-            ], ' '))
-        .green()
-        .toString()
-    )
+    log([emojic.whiteCheckMark, 'MongoDB initialized!'], 'GREEN')
 
 
-    console.log('Initializing Express...')
+    log(['Initializing Express...'])
     await expressLoader(expressApp)
-    console.log(
-        colorIt(_.join([
-                emojic.whiteCheckMark, 
-                'Express initialized!'
-            ], ' ')
-        )
-        .green()
-        .toString()
-    )
+    log([emojic.whiteCheckMark, 'Express initialized!'], 'GREEN')
 
-    console.log(
-        colorIt(
-          _.join([
-            emojic.whiteCheckMark,
-            'Application initialized successfully!', 
-            'Enjoy', emojic.smiley
-          ],' ')
-        )
-        .green()
-        .toString()
-    )
+    log([emojic.whiteCheckMark, 'Application initialized successfully!', 'Enjoy', emojic.smiley], 'GREEN')
 }
 
 module.exports = {

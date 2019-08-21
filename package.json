@@ -27,6 +27,7 @@
     "dotenv": "^8.0.0",
     "emojic": "^1.1.15",
     "express": "^4.17.1",
+    "express-validator": "^6.1.1",
     "flakeid": "^1.0.0",
     "lodash": "^4.17.15",
     "mongoose": "^5.6.9",

@@ -3,16 +3,16 @@ const express = require('express')
 const emojic = require('emojic'),
       colorIt = require('color-it')
 
-const usersRouter = require('../routes/users');
+const apiRouter = require('../routes/api');
 
 const log = require('../logger/simpleLogger').out
 
 const routerLoader = async (app) => {
     try{
         log([' Initializing routers...'])
-        log(['  Initializing users router...'])
-        app.use('/users', usersRouter);
-        log(['  users router initialized successfully!'])
+        log(['  Initializing router...'])
+        app.use('/api', apiRouter);
+        log(['  router initialized successfully!'])
 
         return app
     } catch (err) {

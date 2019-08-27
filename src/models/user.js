@@ -6,7 +6,7 @@ const flake = new FlakeId()
 const {
     Schema
 } = mongoose
-const generateString = require('../utils/generateString')
+const { generateString } = require('../utils/generateString')
 
 const userSchema = new Schema({
     id:{

@@ -1,4 +1,4 @@
-const {check} = require('express-validator/check')
+const {check} = require('express-validator')
 const policyHandler = require('./policyManager')
 
 const policies = {
@@ -42,6 +42,4 @@ const policies = {
     ]
 }
 
-module.exports = {
-    policies
-}
+module.exports = policies;
